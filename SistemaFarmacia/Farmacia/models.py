@@ -229,3 +229,6 @@ class Transferencia(models.Model):
 
         if self.completada and not kwargs.get('update_fields'):
             self.completar_transferencia()
+
+    def __str__(self):
+        return f"Transferencia {self.numero} - {self.producto.nombre}"
