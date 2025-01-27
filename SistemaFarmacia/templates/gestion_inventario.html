@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff1493;
+        }
+
+        .btn-nuevo {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px auto;
+            background-color: #ff1493;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-nuevo:hover {
+            background-color: #ff66b2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #ff1493;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions a {
+            color: #ff1493;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 5px;
+            border: 1px solid #ff1493;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .actions a:hover {
+            background-color: #ff1493;
+            color: white;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #ff1493;
+            padding: 8px 16px;
+            margin: 0 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #ff1493;
+        }
+
+        .pagination a:hover {
+            background-color: #ff1493;
+            color: white;
+        }
+
+        .pagination .current {
+            padding: 8px 16px;
+            margin: 0 5px;
+            font-weight: bold;
+            background-color: #ff1493;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Gestión de Inventario</h1>
+
+<!-- Botón para crear un nuevo inventario -->
+<a href="/inventario/nuevo" class="btn-nuevo">Nuevo Inventario</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Sucursal</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inventario in inventarios %}
+        <tr>
+            <td>{{ inventario.producto.nombre }}</td>
+            <td>{{ inventario.sucursal.numeroSucursal }}</td>
+            <td>{{ inventario.cantidad }}</td>
+            <td class="actions">
+                <a href="{% url 'editar_inventario' inventario.pk %}"><i class="fas fa-edit"></i> Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if inventarios.has_other_pages %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if inventarios.has_previous %}
+                <a href="?page=1">&laquo; Primero</a>
+                <a href="?page={{ inventarios.previous_page_number }}">Anterior</a>
+            {% endif %}
+            <span class="current">
+                Página {{ inventarios.number }} de {{ inventarios.paginator.num_pages }}.
+            </span>
+            {% if inventarios.has_next %}
+                <a href="?page={{ inventarios.next_page_number }}">Siguiente</a>
+                <a href="?page={{ inventarios.paginator.num_pages }}">Último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}
+
+</body>
+</html>

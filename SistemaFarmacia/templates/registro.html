@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Fondo gris claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #6a1b9a; /* Lila oscuro */
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            color: #6a1b9a; /* Lila oscuro */
+            margin-bottom: 5px;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 20px; /* Separación entre los campos */
+            border: 1px solid #d1a6d1; /* Lila suave para los bordes */
+            border-radius: 4px;
+            background-color: #f8f0f8; /* Fondo lila claro */
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #6a1b9a; /* Lila oscuro al hacer focus */
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #8e24aa; /* Lila fuerte para el botón */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #6a1b9a; /* Lila oscuro al pasar el mouse */
+        }
+        .secondary-btn {
+            background-color: #b39ddb; /* Lila medio para botones secundarios */
+        }
+        .secondary-btn:hover {
+            background-color: #9575cd; /* Lila más oscuro al pasar el mouse */
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .text-center a {
+            color: #6a1b9a; /* Lila para los enlaces */
+            text-decoration: none;
+        }
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <button type="submit">Registrarse</button>
+        </form>
+        <div class="text-center">
+            <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a></p>
+        </div>
+    </div>
+</body>
+</html>
