@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Factura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fde8f3; /* Rosa claro */
+            margin: 0;
+            padding: 0;
+            color: #4a044e; /* Rosa oscuro */
+        }
+        h1 {
+            color: #9d174d; /* Rosa intenso */
+            text-align: center;
+            margin-top: 30px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            margin: 30px auto;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(157, 23, 77, 0.2); /* Sombra rosa */
+        }
+        label {
+            font-size: 14px;
+            color: #4a044e;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #f472b6;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input:focus, button:focus {
+            border-color: #be185d; 
+            outline: none;
+        }
+        button {
+            background-color: #db2777; 
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #be185d; 
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="post">
+            <h1>Generar Factura</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Generar Factura</button>
+        </form>
+    </div>
+</body>
+</html>

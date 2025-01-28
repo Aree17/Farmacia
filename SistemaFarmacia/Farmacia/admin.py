@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (
-    Farmacia, Empleado, Cliente, Sucursal, Inventario, Producto, Pedido, ItemPedido, Transferencia, Factura, ProductoInventario
+    Farmacia, Empleado, Cliente, Sucursal, Inventario, Producto, Transferencia, Factura
 )
 
 @admin.register(Farmacia)
@@ -18,9 +18,9 @@ class EmpleadoAdmin(admin.ModelAdmin):
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'farmacia')
+    list_display = ('nombre',)
     search_fields = ('nombre',)
-    list_filter = ('nombre', 'farmacia')
+    list_filter = ('nombre',)
 
 @admin.register(Sucursal)
 class SucursalAdmin(admin.ModelAdmin):
@@ -40,33 +40,16 @@ class ProductoAdmin(admin.ModelAdmin):
     search_fields = ('nombre',)
     list_filter = ('nombre',)
 
-@admin.register(Pedido)
-class PedidoAdmin(admin.ModelAdmin):
-    list_display = ('numero_orden', 'fecha', 'estado', 'sucursal',)
-    search_fields = ('numero_orden', 'fecha',)
-    list_filter = ('numero_orden', 'fecha',)
-
-@admin.register(ItemPedido)
-class ItemPedidoAdmin(admin.ModelAdmin):
-    list_display = ('producto_inventario','cantidad', 'subtotal')
-    search_fields = ('cantidad', 'subtotal')
-    list_filter = ('cantidad', 'subtotal')
-
 @admin.register(Transferencia)
 class TransferenciaAdmin(admin.ModelAdmin):
-    list_display = ('fecha','origen', 'destino', 'producto', 'cantidad', 'completada')
+    list_display = ('fecha','origen', 'destino', 'producto', 'cantidad',)
     search_fields = ('fecha',)
     list_filter = ('fecha', 'origen', 'destino')
 
 @admin.register(Factura)
 class FacturaAdmin(admin.ModelAdmin):
-    list_display = ('fecha', 'numero', 'cliente', 'empleado', 'impuesto', 'descuento', 'subtotal','total',)
+    list_display = ('fecha', 'numero', 'cliente', 'impuesto', 'descuento', 'subtotal','total',)
     search_fields = ('fecha', 'numero',)
     list_filter = ('fecha', 'numero','cliente',)
 
-@admin.register(ProductoInventario)
-class ProductoInventarioAdmin(admin.ModelAdmin):
-    list_display = ('producto', 'inventario', 'cantidad_disponible')
-    search_fields = ('cantidad_disponible',)
-    list_filter = ('producto', 'inventario', 'cantidad_disponible')
 
