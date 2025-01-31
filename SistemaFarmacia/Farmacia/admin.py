@@ -30,7 +30,7 @@ class SucursalAdmin(admin.ModelAdmin):
 
 @admin.register(Inventario)
 class InventarioAdmin(admin.ModelAdmin):
-    list_display = ('sucursal','codigo',)
+    list_display = ('sucursal','codigo', 'producto', 'cantidad',)
     search_fields = ('codigo',)
     list_filter = ('sucursal',)
 
@@ -48,7 +48,7 @@ class TransferenciaAdmin(admin.ModelAdmin):
 
 @admin.register(Factura)
 class FacturaAdmin(admin.ModelAdmin):
-    list_display = ('fecha', 'numero', 'cliente', 'impuesto', 'descuento', 'subtotal','total',)
+    list_display = ('fecha', 'numero', 'cliente', 'inventario', 'cantidad', 'impuesto', 'subtotal','total',)
     search_fields = ('fecha', 'numero',)
     list_filter = ('fecha', 'numero','cliente',)
 

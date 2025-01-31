@@ -1,99 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Inventario</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f0f9; /* Rosa chicle tenue */
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #ff1493; /* Título en rosa fuerte */
-            margin-bottom: 20px;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        .form-container form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-container form p {
-            margin-bottom: 15px;
-        }
-
-        .form-container button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #ff1493; /* Botón en rosa fuerte */
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-container button:hover {
-            background-color: #d40d81; /* Rosa más oscuro al pasar el mouse */
-        }
-
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #ff1493; /* Texto rosa fuerte debajo del botón */
-            font-weight: bold;
-            padding: 10px 0;
-            border-top: 1px solid #f8a8d1;
-        }
-
-        .back-link:hover {
-            color: #d40d81; /* Rosa más oscuro al pasar el mouse */
-        }
-
-        input, select, textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #f8a8d1; /* Borde rosa suave */
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        label {
-            font-weight: bold;
-            color: #d97fae; /* Color rosa para etiquetas */
-        }
-    </style>
+    <title>Generar Transferencia</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
 </head>
 <body>
-
-<h1>Nuevo Inventario</h1>
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/login/">Ingreso</a></li>
+                <li><a href="/inicio/">Inicio</a></li>
+                <li><a href="/inventario/">Inventario</a></li>
+                <li><a href="/inventario/nuevo/">Nuevo Inventario</a></li>
+                <li><a href="/transferencias/">Transferencias</a></li>
+                <li><a href="/transferencias/crear/">Generar Transferencia</a></li>
+                <li><a href="/productos/">Productos</a></li>
+                <li><a href="/facturas/">Facturas</a></li>
+                <li><a href="/factura/crear/">Generar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
 
 <div class="form-container">
+    <h1>Nuevo Inventario</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Crear Inventario</button>
+        <button type="submit" class="btn">Crear Inventario</button>
     </form>
-
-    <a href="{% url 'gestion_inventario' %}" class="back-link">Volver a la gestión de inventario</a>
+</div>
+    
+<div class="btn-container">
+<a href="/inventario/" class="btn">Volver a la gestión de inventario</a>
 </div>
 
 </body>

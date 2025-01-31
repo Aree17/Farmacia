@@ -1,81 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Facturas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f1f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        h1 {
-            color: #ff1493;
-            text-align: center;
-            margin-top: 30px;
-        }
-        table {
-            width: 80%;
-            margin: 30px auto;
-            border-collapse: collapse;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #ff1493;
-            color: white;
-        }
-        tr:hover {
-            background-color: #f9d1e5;
-        }
-        td {
-            font-size: 14px;
-        }
-        .table-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
 </head>
 <body>
-    <div class="table-container">
-        <h1>Listar Facturas</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Numero de Factura</th>
-                    <th>Sucursal</th>
-                    <th>Cliente</th>
-                    <th>Total</th>
-                    <th>Metodo de Pago</th>
-                    <th>Opcion de Entrega</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for factura in facturas %}
-                <tr>
-                    <td>{{ factura.numero }}</td>
-                    <td>{{ factura.sucursal }}</td>
-                    <td>{{ factura.cliente }}</td>
-                    <td>{{ factura.total }}</td>
-                    <td>{{ factura.metodo_pago }}</td>
-                    <td>{{ factura.TipoEntrega }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/login/">Ingreso</a></li>
+                <li><a href="/inicio/">Inicio</a></li>
+                <li><a href="/inventario/">Inventario</a></li>
+                <li><a href="/inventario/nuevo/">Nuevo Inventario</a></li>
+                <li><a href="/transferencias/">Transferencias</a></li>
+                <li><a href="/transferencias/crear/">Generar Transferencia</a></li>
+                <li><a href="/productos/">Productos</a></li>
+                <li><a href="/facturas/">Facturas</a></li>
+                <li><a href="/factura/crear/">Generar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="table-container">
+            <h2>Listar Facturas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número de Factura</th>
+                        <th>Sucursal</th>
+                        <th>Cliente</th>
+                        <th>Total</th>
+                        <th>Método de Pago</th>
+                        <th>Opción de Entrega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factura in facturas %}
+                    <tr>
+                        <td>{{ factura.numero }}</td>
+                        <td>{{ factura.sucursal }}</td>
+                        <td>{{ factura.cliente }}</td>
+                        <td>${{ factura.total }}</td>
+                        <td>{{ factura.metodo_pago }}</td>
+                        <td>{{ factura.TipoEntrega }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No hay facturas disponibles</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 </html>

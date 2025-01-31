@@ -1,70 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generar Transferencia</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
-        }
-
-        h1 {
-            color: #ff1493;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        button {
-            padding: 0.75rem;
-            background-color: #ff1493;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #ff66b2;
-        }
-
-        form p {
-            margin: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
 </head>
 <body>
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/login/">Ingreso</a></li>
+                <li><a href="/inicio/">Inicio</a></li>
+                <li><a href="/inventario/">Inventario</a></li>
+                <li><a href="/inventario/nuevo/">Nuevo Inventario</a></li>
+                <li><a href="/transferencias/">Transferencias</a></li>
+                <li><a href="/transferencias/crear/">Generar Transferencia</a></li>
+                <li><a href="/productos/">Productos</a></li>
+                <li><a href="/facturas/">Facturas</a></li>
+                <li><a href="/factura/crear/">Generar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
         <h1>Generar Transferencia de Producto</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Crear Transferencia</button>
-        </form>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <!-- Mantener la estructura de {{ form.as_p }} -->
+                {{ form.as_p }} 
+                <button type="submit" class="btn">Generar Transferencia</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

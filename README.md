@@ -1,7 +1,7 @@
 # Farmacia
 
 ## Diagrama de clases 
-![Image](https://github.com/user-attachments/assets/ae644edf-87af-44f4-ac44-efbd8ec196fa)
+![Image](https://github.com/user-attachments/assets/2ccd2f48-4754-4336-9a72-27411cef165b)
 
 ## Clases
 [**1.** Farmacia](SistemaFarmacia/Farmacia/models.py)
@@ -38,57 +38,43 @@ A continuación se presentan la mayoría de procesos que permite el sistema
 
 ### Inicio de sesión
 
-![Image](https://github.com/user-attachments/assets/aae974c2-2371-4e7b-b9bb-613e39e13422)
+![Image](https://github.com/user-attachments/assets/3514fdbd-7eb7-4fa5-bd1d-f9af2463c34d)
 
 ### Creación de una cuenta
 
-![Image](https://github.com/user-attachments/assets/d25b0070-9509-42bb-807b-b3e222055796)
+![Image](https://github.com/user-attachments/assets/aa350f67-8a37-43c6-a9a0-4a822457a5cc)
 
 ### Pagina de inicio
 
-![Image](https://github.com/user-attachments/assets/7346f3ca-d173-471b-a7d3-1280b7faf474)
+![Image](https://github.com/user-attachments/assets/210d466e-389c-48d7-811f-57f2418c0a37)
 
-### Visualizar productos
+### Visualizar y Crear productos
 
-![Image](https://github.com/user-attachments/assets/262e63e5-12ec-461f-a4cc-ee6ac0cfc09f)
-
-### Crear producto
-
-![Image](https://github.com/user-attachments/assets/6c2c1449-aecf-44ab-b761-e5a967c9770e)
-
-### Actualización de lista de productos
-
-![Image](https://github.com/user-attachments/assets/59879472-1d31-49f1-a4d3-d4d03bc21a04)
+![Image](https://github.com/user-attachments/assets/ceae44e6-38bc-45e8-866a-55fe2b02774b)
 
 ### Creación de inventario
-![Image](https://github.com/user-attachments/assets/5fe02f3f-cc38-48f8-9e7a-ff3ebaf0bff8)
+
+![Image](https://github.com/user-attachments/assets/21d90aa8-1d6f-4451-b29b-6de7edea46cd)
 
 ### Visualización de inventario
 
-![Image](https://github.com/user-attachments/assets/0f8e50ce-edaa-4bc7-9bab-989b39d1210e)
+![Image](https://github.com/user-attachments/assets/0291e6b8-464a-47af-b0a9-df2b065bdc41)
 
 ### Edición de inventario
-![Image](https://github.com/user-attachments/assets/90183333-bf00-4703-a8a6-68ea5a2cfc00)
+
+![Image](https://github.com/user-attachments/assets/51e47e01-7d8a-4c4d-8b3d-fd56f5e762fd)
 
 ### Visualiación de transferencias
 
-![Image](https://github.com/user-attachments/assets/0e88d316-03fc-4141-84f6-ecbf5f56dacf)
+![Image](https://github.com/user-attachments/assets/b2b4ae19-fa3a-401c-8a5d-0baba78e71fa)
 
 ### Generación de transferencia
 
-![Image](https://github.com/user-attachments/assets/37f02bfa-9cf0-4373-afdd-b8b3aac83ff8)
+![Image](https://github.com/user-attachments/assets/c0165dc2-d0df-4947-9bb6-8bfb8d2b5904)
 
-### Actualización de lista de transferencias
-Cuando se crea una transferencia, automaticamente se añade a la lista de transferencias
 
-![Image](https://github.com/user-attachments/assets/0d80bbf0-662b-4ac6-a473-b9de985f3b88)
-
-### Actualización de inventario
-Luego de realizar la transferencia se actualiza el inventario de origen y el de destino
-
-![Image](https://github.com/user-attachments/assets/3e8317eb-0eb9-4da5-893a-55aeb7269ded)
 
 ### Lista de facturas
 
-![Image](https://github.com/user-attachments/assets/b1f646a3-96ad-4165-a568-d8750851b7aa)
+![Image](https://github.com/user-attachments/assets/07967690-7566-42c4-95ed-adfab5a12934)
 

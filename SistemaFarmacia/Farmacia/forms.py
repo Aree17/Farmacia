@@ -24,7 +24,7 @@ class RegistroClienteForm(forms.ModelForm):
 class InventarioForm(forms.ModelForm):
     class Meta:
         model = Inventario
-        fields = ['sucursal', 'producto', 'cantidad']
+        fields = ['codigo', 'sucursal', 'producto', 'cantidad']
 
 
 class TransferenciaForm(forms.ModelForm):
@@ -44,7 +44,7 @@ class ProductoForm(forms.ModelForm):
 class FacturaForm(forms.ModelForm):
     class Meta:
         model = Factura
-        fields = ['numero', 'sucursal', 'fecha', 'cliente', 'total', 'metodo_pago', 'TipoEntrega']
+        fields = ['numero', 'sucursal', 'inventario', 'cantidad', 'fecha', 'cliente', 'total', 'metodo_pago', 'TipoEntrega']
         widgets = {
             'fecha': forms.DateInput(attrs={'type': 'date'}),
             'opcion_entrega': forms.Select(attrs={'class': 'custom-select'}),
