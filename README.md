@@ -1,7 +1,7 @@
 # Farmacia
 
 ## Diagrama de clases 
-![Image](https://github.com/user-attachments/assets/2ccd2f48-4754-4336-9a72-27411cef165b)
+![Image](https://github.com/user-attachments/assets/ce657d05-d86d-4872-af57-77d24fae270c)
 
 ## Clases
 [**1.** Farmacia](SistemaFarmacia/Farmacia/models.py)
