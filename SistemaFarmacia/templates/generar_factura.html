@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Facturas</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
+</head>
+<body>
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/login/">Ingreso</a></li>
+                <li><a href="/inicio/">Inicio</a></li>
+                <li><a href="/inventario/">Inventario</a></li>
+                <li><a href="/inventario/nuevo/">Nuevo Inventario</a></li>
+                <li><a href="/transferencias/">Transferencias</a></li>
+                <li><a href="/transferencias/crear/">Generar Transferencia</a></li>
+                <li><a href="/productos/">Productos</a></li>
+                <li><a href="/facturas/">Facturas</a></li>
+                <li><a href="/factura/crear/">Generar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <form method="post">
+            <h1>Generar Factura</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Generar Factura</button>
+        </form>
+    </div>
+</body>
+</html>

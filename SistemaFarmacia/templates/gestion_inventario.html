@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
+</head>
+<body>
+    <header>
+        <h1>Farmacia</h1>
+        <nav>
+            <ul>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/login/">Ingreso</a></li>
+                <li><a href="/inicio/">Inicio</a></li>
+                <li><a href="/inventario/">Inventario</a></li>
+                <li><a href="/inventario/nuevo/">Nuevo Inventario</a></li>
+                <li><a href="/transferencias/">Transferencias</a></li>
+                <li><a href="/transferencias/crear/">Generar Transferencia</a></li>
+                <li><a href="/productos/">Productos</a></li>
+                <li><a href="/facturas/">Facturas</a></li>
+                <li><a href="/factura/crear/">Generar Factura</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="table-container">
+            <h2>Gestión de Inventario</h2> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Sucursal</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inventario in inventarios %}
+                    <tr>
+                        <td>{{ inventario.producto.nombre }}</td>
+                        <td>{{ inventario.sucursal.numeroSucursal }}</td>
+                        <td>{{ inventario.cantidad }}</td>
+                        <td class="actions">
+                        <div class="btn-container">
+                         <a href="{% url 'editar_inventario' inventario.pk %}"><i class="fas fa-edit"></i> Editar</a>
+                        </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">No hay inventarios disponibles</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="btn-container">
+            <a href="/inventario/nuevo" class="btn">Nuevo Inventario</a>
+        </div>
+
+        {% if inventarios.has_other_pages %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if inventarios.has_previous %}
+                    <a href="?page=1">&laquo; Primero</a>
+                    <a href="?page={{ inventarios.previous_page_number }}">Anterior</a>
+                {% endif %}
+                <span class="current">
+                    Página {{ inventarios.number }} de {{ inventarios.paginator.num_pages }}.
+                </span>
+                {% if inventarios.has_next %}
+                    <a href="?page={{ inventarios.next_page_number }}">Siguiente</a>
+                    <a href="?page={{ inventarios.paginator.num_pages }}">Último &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+    </main>
+</body>
+</html>
